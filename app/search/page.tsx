@@ -1,7 +1,7 @@
 import Dropdowns from "@/components/filters/Dropdowns";
 import JobsList from "@/components/Jobs/JobsList";
 import Layout from "@/components/Layout";
-import React from "react";
+import React, { Suspense } from "react";
 
 export const metadata = {
   title: "Search Page",
@@ -11,8 +11,10 @@ export const metadata = {
 export default function index() {
   return (
     <Layout>
-      <Dropdowns />
-      <JobsList />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Dropdowns />
+        <JobsList />
+      </Suspense>
     </Layout>
   );
 }
