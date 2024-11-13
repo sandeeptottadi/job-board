@@ -167,34 +167,6 @@ export default function JobsList() {
 
   return (
     <div className=" mt-16">
-      <div className=" m-auto mb-4 mt-4 flex w-3/4 flex-row items-center justify-between text-center">
-        <div>
-          <Box sx={{ minWidth: 120 }}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={sortBy}
-                label="Sort By"
-                onChange={(e) => {
-                  setQuery("sortBy", e.target.value);
-                  setSortBy(e.target.value);
-                }}
-              >
-                <MenuItem value={"date-added"}>Date Added</MenuItem>
-                <MenuItem value={"experience-low-to-high"}>
-                  Experience (Low to High)
-                </MenuItem>
-                <MenuItem value={"experience-high-to-low"}>
-                  Experience (High to Low)
-                </MenuItem>
-                <MenuItem value={"salary"}>Salary</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-        </div>
-      </div>
       {jobs.length > 0 && (
         <div className=" flex w-full flex-col gap-5">
           {jobs.map((job) => (
