@@ -192,7 +192,7 @@ export default function JobsList() {
                   )}
                   {!job.company_logo && (
                     <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-gray-200">
-                      <p>{job.company_name[0]}</p>
+                      <p>{job.company_name && ""}</p>
                     </div>
                   )}
                 </div>
@@ -297,7 +297,7 @@ export default function JobsList() {
                   )}
                 </div>
                 <div className="mt-4 flex flex-row flex-wrap gap-2">
-                  {job.skills.map((skill) => (
+                  {job?.skills?.map((skill) => (
                     <span
                       key={skill}
                       className=" rounded-md bg-[#F3F4F6] px-2 py-1"

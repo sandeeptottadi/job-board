@@ -11,9 +11,8 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
     const keywords = Array.isArray(body.keywords) ? body.keywords : [];
     const query = `${job_title.join(" OR ")} ${keywords.join(
       " OR "
-    )} site:greenhouse.io OR site:welfound.com OR site:lever.co OR site:workatastartup.com`;
+    )} site:greenhouse.io OR site:welfound.com OR site:workatastartup.com`;
     const jobs = [];
-    console.log(body);
     try {
       const results = await googleSearch(query, 1);
       if (results) {

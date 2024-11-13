@@ -27,36 +27,36 @@ export async function POST(req: NextRequest) {
 }
 
 async function processMarkDown(markdown: string) {
-  const prompt = `Extract the following information from the job description: ${markdown}. The output should be a strictly formatted JSON object with these properties, where any missing property in the job posting should be set to null:
-  {
-    "job_title": "string | null",
-    "company_name": "string | null",
-    "application_link": "string | null",
-    "location": "string | null",
-    "description": "string | null", // Summarized description containing all important points
-    "salary_range": {
-      "min": number | null,
-      "max": number | null,
-      "currency": "string | null"
-    } | null,
-    "location_type": "Remote" | "In-person" | "Hybrid" | null,
-    "employment_type": "Full Time" | "Part Time" | "Internship" | "Contract / Temporary" | null,
-    "skills": ["string"] | null, // Array of required skills
-    "requirements": ["string"] | null, // Array of role requirements
-    "company_logo": "string | null", // Link to the company's logo
-    "posted_date": "string | null", // Date the job was posted
-    "application_deadline": "string | null", // Last date to apply for the role
-    "experience_level": "Entry-level" | "Mid-level" | "Senior-level" | null, // Experience required
-    "education_requirements": "string | null", // Minimum education qualification
-    "benefits": ["string"] | null, // Array of additional perks
-    "work_authorization": "string | null", // Visa or permit requirements
-    "job_id": "string | null", // Unique identifier for the job posting
-    "job_category": "string | null", // Industry or domain of the job
-    "work_environment": "On-site" | "Hybrid" | "Remote" | null, // Type of work environment
-    "company_size": "string | null", // Number of employees or size description
-    "company_website": "string | null" // Link to the company’s website
-  }
-  Ensure the output strictly matches this format without adding any extra text or details. Properties not provided in the job posting should be explicitly set to null.`;
+  const prompt = `Extract the following information from the job description: ${markdown}. The output should be a strictly formatted JSON object with these properties: 
+{
+  "job_title": "string",
+  "company_name": "string",
+  "application_link": "string",
+  "location": "string",
+  "description": "string", // Summarized description containing all important points
+  "salary_range": {
+    "min": number,
+    "max": number,
+    "currency": "string"
+  },
+  "location_type": "Remote" | "In-person" | "Hybrid",
+  "employment_type": "Full Time" | "Part Time" | "Internship" | "Contract / Temporary",
+  "skills": ["string"], // Array of required skills
+  "requirements": ["string"], // Array of role requirements
+  "company_logo": "string", // Link to the company's logo
+  "posted_date": "string", // Date the job was posted
+  "application_deadline": "string", // Last date to apply for the role
+  "experience_level": "Entry-level" | "Mid-level" | "Senior-level", // Experience required
+  "education_requirements": "string", // Minimum education qualification
+  "benefits": ["string"], // Array of additional perks
+  "work_authorization": "string", // Visa or permit requirements
+  "job_id": "string", // Unique identifier for the job posting
+  "job_category": "string", // Industry or domain of the job
+  "work_environment": "On-site" | "Hybrid" | "Remote", // Type of work environment
+  "company_size": "string", // Number of employees or size description
+  "company_website": "string" // Link to the company’s website
+}
+Ensure the output strictly matches this format without adding any extra text or details.`;
 
   const completion = await openai.chat.completions.create({
     model: "gpt-3.5-turbo-0125",
