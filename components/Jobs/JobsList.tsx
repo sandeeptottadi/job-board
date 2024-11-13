@@ -4,13 +4,6 @@ import React, { useState, useEffect } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import JobsListSkeleton from "./JobsListSkeleton";
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 import {
   employmentTypeOptionsMap,
   locationTypeOptionsMap,
@@ -196,7 +189,7 @@ export default function JobsList() {
                     </div>
                   )}
                 </div>
-                <h2 className="line-clamp-1 h-fit w-3/4 overflow-hidden text-ellipsis text-xl">
+                <h2 className="line-clamp-1 h-fit w-3/4 overflow -hidden text-ellipsis text-xl">
                   {job.job_title}
                 </h2>
               </div>
@@ -315,6 +308,9 @@ export default function JobsList() {
         Array.from({ length: 10 - jobs.length }).map((_, index) => {
           return <JobsListSkeleton key={index} />;
         })}
+      <button className="mt-10 mb-10 bg-blue-500 text-white px-4 py-2 rounded mx-auto block hover:bg-blue-600">
+        Next Page
+      </button>
     </div>
   );
 }
