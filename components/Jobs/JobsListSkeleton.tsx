@@ -15,10 +15,10 @@ export default function JobsListSkeleton() {
           <div className="about-skeleton"></div>
           <div className="about-line1-skeleton"></div>
           <div className="about-line2-skeleton"></div>
-          <div className="requirement-skeleton"></div>
+          {/* <div className="requirement-skeleton"></div>
           <div className="requirement-line1-skeleton"></div>
           <div className="requirement-line1-skeleton"></div>
-          <div className="requirement-line2-skeleton"></div>
+          <div className="requirement-line2-skeleton"></div> */}
           <div className="items1-skeleton">
             <div className="item"></div>
             <div className="item"></div>

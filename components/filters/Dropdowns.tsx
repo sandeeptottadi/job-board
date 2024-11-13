@@ -180,7 +180,7 @@ export default function Dropdowns() {
   };
 
   return (
-    <div className="m-auto flex w-[95%] flex-row flex-wrap justify-center gap-8">
+    <div className="m-auto flex w-[80%] flex-row flex-wrap justify-center gap-8 mt-12">
       <CreatableSelect
         className=" min-w-[200px] max-w-full"
         getOptionLabel={(option) => `${option.label}`}

@@ -108,6 +108,7 @@ export default function JobsList() {
           ? query?.get("jobTitle")?.split(",")
           : [],
         keywords: [
+          ...[query?.get("location")?.split(",") || []],
           ...(query?.get("keyword")?.split(",") || []),
           ...(query?.get("hideKeyword")?.split(",") || []),
           ...(query?.get("experienceLevel")?.split(",") || []),
@@ -198,7 +199,7 @@ export default function JobsList() {
         <div className=" flex w-full flex-col gap-5">
           {jobs.map((job) => (
             <a
-              href={`/dashboard-c/jobs/company/${job.company_slug}/jobs/${job.job_slug}`}
+              href={job.application_link}
               className=" relative m-auto h-fit w-3/4 rounded-xl border border-[#EEEEEE] bg-[#FFFFFF] p-10"
               key={job.id}
             >

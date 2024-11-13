@@ -13,6 +13,7 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
       " OR "
     )} site:greenhouse.io OR site:welfound.com OR site:lever.co OR site:workatastartup.com`;
     const jobs = [];
+    console.log(body);
     try {
       const results = await googleSearch(query, 1);
       if (results) {
