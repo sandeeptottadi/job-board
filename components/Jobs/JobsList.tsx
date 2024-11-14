@@ -89,6 +89,7 @@ export default function JobsList() {
   };
 
   useEffect(() => {
+    setJobs([]);
     setAllLoaded(false);
     let latestAbortController = new AbortController();
     const signal = latestAbortController.signal;
