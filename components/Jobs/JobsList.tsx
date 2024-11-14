@@ -89,6 +89,7 @@ export default function JobsList() {
   };
 
   useEffect(() => {
+    setAllLoaded(false);
     let latestAbortController = new AbortController();
     const signal = latestAbortController.signal;
     fetch("/api/search-jobs", {
